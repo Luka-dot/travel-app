@@ -24,9 +24,9 @@ const DUMMY_PLACES = [
         imageUrl: 'https://www.planetware.com/wpimages/2019/06/czech-republic-prague-itineraries-for-travelers-one-day-itinerary-old-town-square.jpg',
         address: 'Staroměstské nám., 110 00 Josefov, Czechia',
         location: {
-            lag: 50.0875726,
-            lng: 14.4189988
-        },
+            lat: 50.0894,
+            lng: 14.4194
+          },
         creator: 'u1'
     },
     {
@@ -36,9 +36,9 @@ const DUMMY_PLACES = [
         imageUrl: 'https://i.redd.it/q2f9xfhtvfb31.jpg',
         address: '381 01 Český Krumlov, Czechia',
         location: {
-            lag: 48.8118349,
-            lng: 14.3138502
-        },
+            lat: 48.81091,
+            lng: 14.31521
+          },
         creator: 'u2'
     },
     {
