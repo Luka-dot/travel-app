@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export class NewPlace extends Component {
-    render() {
-        return (
-            <div>
-                <h1> New Place Rocks!!!!</h1>
-            </div>
-        )
-    }
-}
+const NewPlace = () => {
+  return <h2>NewPlace Works!</h2>
+};
 
-export default NewPlace
+export default NewPlace;
