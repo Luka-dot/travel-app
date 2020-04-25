@@ -11,7 +11,7 @@ const Users = () => {
     },
     {
         id: 'u2', 
-        name: 'Max', 
+        name: 'Sawyer', 
         image: 'https://i.redd.it/q2f9xfhtvfb31.jpg',
         places: 3
     }];
