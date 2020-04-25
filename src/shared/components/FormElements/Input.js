@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 import { validate } from '../../util/validators';
 import './Input.css';
+import { useParams } from 'react-router-dom';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -28,6 +29,13 @@ const Input = props => {
     isTouched: false,
     isValid: false
   });
+
+  const { id, onInput } = props;
+  const { value, isValid } = inputState;
+
+  useEffect(() => {
+      props.onInput(props.id, inputState.value, inputState.isValid)
+  }, [id, value, isValid, onInput])
 
   const changeHandler = event => {
     dispatch({
