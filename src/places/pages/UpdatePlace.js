@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -6,6 +6,7 @@ import Button from '../../shared/components/FormElements/Button';
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators';
 import './PlaceForm.css';
 import { useForm } from '../../shared/hooks/form-hook';
+import Card from '../../shared/components/UIElements/Card';
 
 const DUMMY_PLACES = [
     {
@@ -60,6 +61,7 @@ const DUMMY_PLACES = [
   ];
 
 const UpdatePlace = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const placeId = useParams().placeId;
 
     const [formState, inputHandler, setFormData] = useForm({
@@ -77,16 +79,19 @@ const UpdatePlace = () => {
     const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
 
     useEffect(() => {
-        setFormData({
-            title: {
-                value: identifiedPlace.title,
-                isValid: true
-            },
-            description: {
-                value: identifiedPlace.description,
-                isValid: true
-            }
-        }, true)
+        if (identifiedPlace) {
+            setFormData({
+                title: {
+                    value: identifiedPlace.title,
+                    isValid: true
+                },
+                description: {
+                    value: identifiedPlace.description,
+                    isValid: true
+                }
+            }, true);
+        }
+        setIsLoading(false);
     }, [setFormData, identifiedPlace]);
     
 
@@ -98,12 +103,22 @@ const UpdatePlace = () => {
     if (!identifiedPlace) {
         return (
             <div className="center">
+                <Card>
                 <h2>Couldnt find place</h2>
+                </Card>
             </div>
         );
     }
+    if (isLoading) {
+        return (
+            <div className="center">
+        <h1> ......LOADING......</h1>
+        </div>
+        )
+    }
 
-    return <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+    return (
+         <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
         <Input 
             id="title" 
             element="input"
@@ -130,6 +145,8 @@ const UpdatePlace = () => {
                 disabled={!formState.isValid}
                 >UPDATE PLACE</Button>
     </form>
+        
+    )
 }
 
 export default UpdatePlace;
