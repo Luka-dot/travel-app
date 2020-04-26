@@ -73,7 +73,8 @@ const UpdatePlace = () => {
             value: identifiedPlace.description,
             isValid: true
         }
-    }, true);
+    }, true
+    );
 
     const placeUpdateSubmitHandler = event => {
         event.preventDefault();
