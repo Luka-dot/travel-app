@@ -74,6 +74,7 @@ const Auth = () => {
         console.log(err);
       }
     } else {
+      
       try {
         // *************** SIGNUP ************************
         const responseData = await sendRequest(

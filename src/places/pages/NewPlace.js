@@ -43,7 +43,7 @@ const NewPlace = () => {
             }),
             { 'Content-Type': 'application/json' }
             );
-            // redirect to diff page
+            history.push('/');
         } catch (err) {
 
         }
