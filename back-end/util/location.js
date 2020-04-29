@@ -22,6 +22,7 @@ async function getCoordsForAddress(address) {
       'Could not find location for the specified address.',
       422
     );
+    
     throw error;
   }
 

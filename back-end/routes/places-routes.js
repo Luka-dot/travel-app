@@ -11,7 +11,6 @@ router.get('/:pid', placesControllers.getPlaceById);
 
 router.get('/user/:uid', placesControllers.getPlacesByUserId);
 
-// middleware to make sure routs below needs JWT
 router.use(checkAuth);
 
 router.post(
