@@ -46,15 +46,12 @@ app.use((error, req, res, next) => {
   res.status(error.code || 500);
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
-console.log('***************** ',process.env.USER);
-console.log('***************** ',process.env.PASSWORD);
-console.log('***************** ',process.env.NAME);
+
 mongoose
-//.connect('mongodb+srv://Main-user:12345@cluster0-uqk4f.mongodb.net/test?retryWrites=true&w=majority')
 
 .connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0-uqk4f.mongodb.net/${process.env.NAME}?retryWrites=true&w=majority`)
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT || 5000);
   })
   .catch(err => {
     console.log(err);

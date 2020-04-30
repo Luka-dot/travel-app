@@ -6,7 +6,7 @@ import './NavLinks.css';
 const NavLinks = props => {
     return <ul className="nav-links">
         <li>
-            <NavLink to="/" exact>All Users</NavLink>
+            <NavLink to="/" exact>All Members</NavLink>
         </li>
         <li>
             <NavLink to="/u1/places">My Places</NavLink>
@@ -15,7 +15,7 @@ const NavLinks = props => {
             <NavLink to="/places/new">Add Places</NavLink>
         </li>
         <li>
-            <NavLink to="/auth">Authenticate</NavLink>
+            <NavLink to="/auth">Login</NavLink>
         </li>
     </ul>
 
