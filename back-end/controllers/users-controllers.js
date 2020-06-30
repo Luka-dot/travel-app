@@ -159,6 +159,7 @@ const login = async (req, res, next) => {
     email: existingUser.email,
     token: token
   });
+  
 };
 
 exports.getUsers = getUsers;
